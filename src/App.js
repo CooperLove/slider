@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import data from "./Data.js";
+
+import MakeReview from "./components/MakeReview";
+import Slider from "./components/Slider";
 
 function App() {
+  const [showReview, setShowReview] = useState(false);
+  const toggleReviewForm = () => setShowReview(!showReview);
+  const [people, setPeople] = useState(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <Slider toggleReviewForm={toggleReviewForm} people={people} />
+      {showReview ? (
+        <MakeReview
+          people={people}
+          setReviews={setPeople}
+          toggleReviewForm={toggleReviewForm}
+        />
+      ) : (
+        ""
+      )}
+    </section>
   );
 }
 
