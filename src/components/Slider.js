@@ -25,7 +25,7 @@ function Slider({ toggleReviewForm, people }) {
   useEffect(() => {
     console.log("Hi", $(".reviewBtn"));
     $(".reviewBtn").animate({ width: "250px" }, 1000);
-    setTimeout(function() {
+    setTimeout(function () {
       $(".reviewBtn").css("color", "white");
     }, 1000);
   }, []);
@@ -65,7 +65,7 @@ function Slider({ toggleReviewForm, people }) {
         </button>
       </div>
       <button className="reviewBtn" onClick={() => toggleReviewForm()}>
-        Make a review
+        Make a reviews
       </button>
     </section>
   );
